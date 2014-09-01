@@ -1,0 +1,55 @@
+<html>
+  <head>
+  	<title>Today's password of clear-guest</title>
+  	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  	<script>
+  	  function readPswd(){
+  	  	var pswd = null;
+        var reader = new FileReader();
+
+				reader.onload = function(e) {
+					pswd = reader.result;
+				}
+
+				reader.readAsText('/data/network_switcher/.pswd');
+				return pswd;
+  	  }
+
+       $(document).ready(function(){
+         var pswd = readPswd();
+         $("#span_pswd").html('dsdsd');
+         $("#img_qr").attr('src', 'http://zxing.org/w/chart?cht=qr&chs=350x350&chld=L&choe=UTF-8&chl='+pswd)
+       });
+  	</script>
+  </head>
+  <body style="font-family: Monospace">
+    <div style="margin-left: 50px;margin-bottom: 0px;">
+      <p>Today's password of clear-guest is:</p>
+      <span style="font-size: 20pt" id="span_pswd"></span>
+    </div>
+    <div>
+      <img id="img_qr" />
+    <div>
+    <div style="margin-left: 50px">
+      <div style="font-size: 10pt">Scan QR code above with Apps listed to join clear-guest:</div>
+      <table style="width:100px;font-size: 8pt;margin-left: -3px;">
+        <tr>
+          <td align="left">IOS</td>
+          <td align="left">Android</td>
+        </tr>
+        <tr>
+          <td align="left">
+            <a href="https://itunes.apple.com/app/qr-scanner/id377643590?mt=8">
+              <img width="32" height="32" src="http://a3.mzstatic.com/us/r30/Purple2/v4/bb/31/bf/bb31bfaf-7987-232d-051d-655fc9e2e90f/mzl.wnthjzgs.175x175-75.jpg"/>
+            </a>
+          </td>
+          <td align="left">
+            <a href="https://play.google.com/store/apps/details?id=com.kaywa.barcode&hl=en">
+              <img width="32" height="32" src="http://a2.mzstatic.com/us/r30/Purple4/v4/43/a8/11/43a81161-9c93-2546-45a7-033b1b2c248f/mzl.cqdaugwn.175x175-75.jpg"/>
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
